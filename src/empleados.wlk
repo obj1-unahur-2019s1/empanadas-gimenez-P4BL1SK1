@@ -1,13 +1,18 @@
-object gimenez {
+object galvan {
 	// la linea que sigue es equivalente a todo lo que está debajo.
 	// le agrega al objeto: un atributo, el método para acceder, y el método para modificar.
 //	var property sueldo = 15000
 
+<<<<<<< HEAD
 	var property sueldo = 0
 	var dineroTotal=0
 	var deuda=0
 	method sueldo() { sueldo=15000
 		return sueldo}
+=======
+	var sueldo = 15000
+	method sueldo() { return sueldo }
+>>>>>>> 8d10b9e033efe1e658b876f5a929957aaedd1319
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
 	method cobrarSueldo(){
 		return sueldo}
@@ -38,7 +43,7 @@ object baigorria {
 	return totalCobrado}
 }
 
-object galvan {
+object gimenez {
 	var dinero = 300000
 	method dinero() { return dinero }
 	method pagarA(empleado) {
