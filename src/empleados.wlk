@@ -3,28 +3,24 @@ object galvan {
 	// le agrega al objeto: un atributo, el método para acceder, y el método para modificar.
 //	var property sueldo = 15000
 
-<<<<<<< HEAD
 	var property sueldo = 0
 	var dineroTotal=0
 	var deuda=0
 	method sueldo() { sueldo=15000
 		return sueldo}
-=======
-	var sueldo = 15000
-	method sueldo() { return sueldo }
->>>>>>> 8d10b9e033efe1e658b876f5a929957aaedd1319
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
 	method cobrarSueldo(){
 		return sueldo}
 	method dineroTotal(){
 		dineroTotal+=sueldo
 		return dineroTotal}
-	method gastar(cuanto){
-		dineroTotal-=cuanto
-		return dineroTotal}
-	method totalDeuda(
-			
-	){}
+	method gastar(cuanto){ 
+		dineroTotal=dineroTotal-cuanto}
+	method deuda(){
+		if(dineroTotal<0){deuda=deuda-dineroTotal}
+		else{deuda=0}
+		return deuda
+	}
 }
 object baigorria {
 	var cantidadEmpanadasVendidas = 100
