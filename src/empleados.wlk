@@ -12,15 +12,14 @@ object galvan {
 	method cobrarSueldo(){
 		return sueldo}
 	method dineroTotal(){
-		dineroTotal+=sueldo
-		return dineroTotal}
+		if(dineroTotal>=0){dineroTotal=sueldo-deuda return dineroTotal}
+		else if(dineroTotal<0){dineroTotal=0 return dineroTotal}
+		else return dineroTotal}
 	method gastar(cuanto){ 
 		dineroTotal=dineroTotal-cuanto}
-	method deuda(){
-		if(dineroTotal<0){deuda=deuda-dineroTotal}
-		else{deuda=0}
-		return deuda
-	}
+	method deudaTotal(){
+		if(dineroTotal<=0){deuda=deuda-dineroTotal return deuda}
+		else deuda=0 return deuda}
 }
 object baigorria {
 	var cantidadEmpanadasVendidas = 100
