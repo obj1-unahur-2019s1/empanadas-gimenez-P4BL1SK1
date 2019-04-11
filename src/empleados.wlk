@@ -6,38 +6,34 @@ object galvan {
 	var property sueldo = 0
 	var dineroTotal=0
 	var deuda=0
-	method sueldo() { sueldo=15000
-		return sueldo}
-	method sueldo(nuevoValor) { sueldo = nuevoValor }
+	method sueldo(){sueldo=15000 return sueldo}
+	method cambiarSueldo(nuevoValor){sueldo = nuevoValor}
+	
 	method cobrarSueldo(){
-		return sueldo}
-	method dineroTotal(){
-		if(dineroTotal>=0){dineroTotal=sueldo-deuda return dineroTotal}
-		else if(dineroTotal<0){dineroTotal=0 return dineroTotal}
-		else return dineroTotal}
-	method gastar(cuanto){ 
-		dineroTotal=dineroTotal-cuanto}
-	method deudaTotal(){
-		if(dineroTotal<=0){deuda=deuda-dineroTotal return deuda}
-		else deuda=0 return deuda}
+		if(deuda>0){
+			var cuantoCancelar=self.sueldo().min(deuda)
+			var cuantoGuardar=self.sueldo()-cuantoCancelar
+			deuda-=cuantoCancelar
+			dineroTotal+=cuantoGuardar}
+		else{dineroTotal+=cuantoGuardar}
+	}	
+	method gastar(cuanto){dineroTotal-=cuanto}
+	method deudaTotal(){return deuda}
+	method dineroTotal(){return dineroTotal}
 }
 object baigorria {
 	var cantidadEmpanadasVendidas = 100
 	var montoPorEmpanada = 15	
-	var property sueldo=0
 	var totalCobrado=0
 	method venderEmpanada() {
 		cantidadEmpanadasVendidas +=1 }
 	method sueldo(){
-		sueldo=(cantidadEmpanadasVendidas*montoPorEmpanada)
-		return sueldo}
+		return cantidadEmpanadasVendidas*montoPorEmpanada}
 	method cobrarSueldo(){
-		return sueldo}
+		totalCobrado+= self.sueldo()}
 	method totalCobrado(){
-		totalCobrado+=sueldo
-	return totalCobrado}
+		return totalCobrado}
 }
-
 object gimenez {
 	var dinero = 300000
 	method dinero() { return dinero }
