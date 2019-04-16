@@ -6,20 +6,25 @@ object galvan {
 	var property sueldo = 0
 	var dineroTotal=0
 	var deuda=0
+	var cuantoCancelar=0
+	var cuantoGuardar=0 
 	method sueldo(){sueldo=15000 return sueldo}
 	method cambiarSueldo(nuevoValor){sueldo = nuevoValor}
-	
 	method cobrarSueldo(){
-		if(deuda>0){
-			var cuantoCancelar=self.sueldo().min(deuda)
-			var cuantoGuardar=self.sueldo()-cuantoCancelar
+		self.cbr()
+		//if(sueldo==15000){
 			deuda-=cuantoCancelar
 			dineroTotal+=cuantoGuardar}
-		else{dineroTotal+=cuantoGuardar}
-	}	
-	method gastar(cuanto){dineroTotal-=cuanto}
+		//else{dineroTotal+=cuantoGuardar}
+	method gastar(cuanto){if(dineroTotal<=0){deuda=deuda+cuanto} else{deuda-=dineroTotal}}
 	method deudaTotal(){return deuda}
 	method dineroTotal(){return dineroTotal}
+	method cancel(){
+		if(sueldo>deuda){cuantoCancelar= sueldo-deuda}
+		else if(sueldo<deuda){cuantoGuardar=sueldo-cuantoCancelar}
+		else{cuantoGuardar=sueldo}
+	}	
+	method cbr() {dineroTotal+= self.sueldo()}
 }
 object baigorria {
 	var cantidadEmpanadasVendidas = 100
