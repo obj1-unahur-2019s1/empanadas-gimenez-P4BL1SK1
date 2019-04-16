@@ -12,17 +12,18 @@ object galvan {
 	method cambiarSueldo(nuevoValor){sueldo = nuevoValor}
 	method cobrarSueldo(){
 		self.cbr()
-		//if(sueldo==15000){
 			deuda-=cuantoCancelar
 			dineroTotal+=cuantoGuardar}
-		//else{dineroTotal+=cuantoGuardar}
 	method gastar(cuanto){if(dineroTotal<=0){deuda=deuda+cuanto} else{deuda-=dineroTotal}}
 	method deudaTotal(){return deuda}
 	method dineroTotal(){return dineroTotal}
 	method cancel(){
-		if(sueldo>deuda){cuantoCancelar= sueldo-deuda}
-		else if(sueldo<deuda){cuantoGuardar=sueldo-cuantoCancelar}
-		else{cuantoGuardar=sueldo}
+		if(sueldo >= deuda){
+			dineroTotal = dineroTotal + sueldo - deuda
+			deuda = 0
+		} else {
+			deuda = deuda - sueldo
+		}
 	}	
 	method cbr() {dineroTotal+= self.sueldo()}
 }
